@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canta e Toca — Violão Gospel para Professores do Ministério Infantil</title>
+<meta name="description" content="Aprenda 10 músicas gospel infantis no violão, sem pestana e sem complicação. Aula em vídeo, cifra em PDF e acesso vitalício por R$ 39,90.">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --black-soft: #121212;
+    --white: #f7f5f0;
+    --gold: #BF9913;
+    --gold-bright: #E8C547;
+    --gray: #8a8a85;
+    --gray-line: #2a2a28;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Starfield texture */
+  .stars {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  .stars::before, .stars::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 200%;
+    background-image:
+      radial-gradient(1px 1px at 20px 30px, white, transparent),
+      radial-gradient(1px 1px at 90px 80px, white, transparent),
+      radial-gradient(1px 1px at 160px 40px, white, transparent),
+      radial-gradient(1px 1px at 230px 120px, white, transparent),
+      radial-gradient(1px 1px at 300px 60px, white, transparent),
+      radial-gradient(1px 1px at 50px 160px, white, transparent),
+      radial-gradient(1px 1px at 130px 200px, white, transparent),
+      radial-gradient(1px 1px at 280px 180px, white, transparent),
+      radial-gradient(1px 1px at 350px 250px, white, transparent),
+      radial-gradient(1px 1px at 10px 280px, white, transparent);
+    background-repeat: repeat;
+    background-size: 380px 380px;
+    animation: drift 90s linear infinite;
+  }
+
+  @keyframes drift {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* Utility */
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 28px auto;
+    border: none;
+  }
+
+  .divider.left { margin: 28px 0; }
+
+  .gold { color: var(--gold-bright); }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 18px 44px;
+    border-radius: 2px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+    color: var(--black);
+    box-shadow: 0 4px 24px rgba(191, 153, 19, 0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(191, 153, 19, 0.4);
+  }
+
+  .btn-wrap { text-align: center; margin: 36px 0; }
+
+  .btn-sub {
+    display: block;
+    margin-top: 14px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--gray);
+    letter-spacing: 0.04em;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 28px 60px;
+  }
+
+  .hero-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .hero-col-text { text-align: left; }
+
+  .hero-media {
+    aspect-ratio: 4/5;
+    border: 1px solid var(--gray-line);
+    border-radius: 4px;
+    background: var(--black-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-media img, .hero-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .media-placeholder {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-align: center;
+    padding: 20px;
+    border: 1px dashed var(--gray-line);
+    border-radius: 4px;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-mark {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 32px;
+  }
+
+  .hero-mark span { color: var(--gold); }
+
+  h1 {
+    font-size: clamp(40px, 8vw, 72px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    max-width: 680px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold-bright);
+    font-weight: 400;
+  }
+
+  .hero-sub {
+    margin-top: 28px;
+    font-size: clamp(17px, 2.4vw, 21px);
+    color: #d8d5cc;
+    max-width: 480px;
+    font-style: italic;
+  }
+
+  .hero-col-text .btn-wrap { text-align: left; margin: 36px 0 0; }
+
+  /* Two-column section (video, founder) */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .two-col.media-left { grid-template-columns: 0.95fr 1.05fr; }
+
+  .two-col.founder-layout { grid-template-columns: 1.6fr 1fr; align-items: start; gap: 40px; }
+
+  .video-frame {
+    aspect-ratio: 16/9;
+    border: 1px solid var(--gray-line);
+    border-radius: 4px;
+    background: var(--black-soft);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .video-frame iframe, .video-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    display: block;
+  }
+
+  .founder-photo {
+    aspect-ratio: 3/4;
+    border: 1px solid var(--gray-line);
+    border-radius: 4px;
+    background: var(--black-soft);
+    overflow: hidden;
+  }
+
+  .founder-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 860px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-col-text { text-align: center; }
+    .hero-col-text .btn-wrap { text-align: center; }
+    .two-col, .two-col.media-left, .two-col.founder-layout { grid-template-columns: 1fr; gap: 28px; }
+    .two-col.media-left .video-frame, .two-col.media-left .founder-photo { order: -1; }
+  }
+
+  .hero-tag {
+    margin-top: 44px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+  }
+
+  /* Sections */
+  section {
+    padding: 90px 0;
+    position: relative;
+  }
+
+  section.bordered {
+    border-top: 1px solid var(--gray-line);
+  }
+
+  h2 {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  p.lead {
+    font-size: 19px;
+    color: #d8d5cc;
+    max-width: 600px;
+  }
+
+  /* The string metaphor block */
+  .string-block {
+    text-align: center;
+    padding: 70px 0;
+  }
+
+  .string-block .big {
+    font-size: clamp(56px, 12vw, 110px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--gold-bright);
+    font-style: italic;
+  }
+
+  .string-block .small {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 18px;
+  }
+
+  /* What's included */
+  .includes {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 40px;
+  }
+
+  .includes-item {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--gray-line);
+    align-items: baseline;
+  }
+
+  .includes-item:first-child { border-top: 1px solid var(--gray-line); }
+
+  .includes-mark {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--gold);
+    font-size: 13px;
+    flex-shrink: 0;
+    width: 28px;
+    padding-top: 4px;
+  }
+
+  .includes-text strong {
+    display: block;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .includes-text span {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--gray);
+    font-style: normal;
+  }
+
+  /* Founder section */
+  .founder {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .founder-name {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 15px;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+  }
+
+  .founder p {
+    color: #d8d5cc;
+    font-size: 17px;
+    max-width: 600px;
+  }
+
+  .founder-quote {
+    font-style: italic;
+    font-size: 21px;
+    color: var(--white);
+    border-left: 2px solid var(--gold);
+    padding-left: 24px;
+    margin: 8px 0;
+  }
+
+  /* Modules */
+  .modules {
+    margin-top: 40px;
+  }
+
+  .module {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--gray-line);
+  }
+
+  .module:first-child { border-top: 1px solid var(--gray-line); }
+
+  .module-num {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    padding-top: 6px;
+  }
+
+  .module-num b {
+    display: block;
+    font-size: 28px;
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-weight: 400;
+  }
+
+  .module-title {
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .module-desc {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* Value stack section */
+  .value-stack {
+    background: var(--black-soft);
+    border: 1px solid var(--gray-line);
+    border-radius: 4px;
+    padding: 48px 40px;
+    margin-top: 40px;
+  }
+
+  .value-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gray-line);
+  }
+
+  .value-item:first-child { border-top: none; }
+
+  .value-item-label {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 17px;
+    color: var(--white);
+  }
+
+  .value-item-label .check {
+    color: var(--gold);
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .value-item-price {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--gray);
+    white-space: nowrap;
+  }
+
+  .value-total {
+    text-align: center;
+    padding-top: 36px;
+    margin-top: 8px;
+  }
+
+  .value-total-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    color: var(--gray);
+    margin-bottom: 10px;
+  }
+
+  .value-total-price {
+    font-size: clamp(32px, 6vw, 44px);
+    color: var(--gray);
+    text-decoration: line-through;
+    text-decoration-color: var(--gold);
+    text-decoration-thickness: 2px;
+    font-style: italic;
+  }
+
+  .value-arrow {
+    margin: 22px 0;
+    font-size: 13px;
+    color: var(--gray);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .value-final-price {
+    font-size: clamp(48px, 9vw, 68px);
+    color: var(--gold-bright);
+    font-style: italic;
+  }
+
+  .value-final-sub {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 6px;
+  }
+
+  @media (max-width: 640px) {
+    .value-stack { padding: 32px 24px; }
+    .value-item-label { font-size: 15px; }
+  }
+  .price-block {
+    text-align: center;
+    background: var(--black-soft);
+    border: 1px solid var(--gray-line);
+    border-radius: 4px;
+    padding: 56px 32px;
+    margin-top: 40px;
+  }
+
+  .price-tag {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 13px;
+    color: var(--gray);
+  }
+
+  .price-value {
+    font-size: clamp(48px, 10vw, 72px);
+    color: var(--gold-bright);
+    margin: 12px 0;
+    font-style: italic;
+  }
+
+  .price-period {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--gray);
+  }
+
+  .guarantee-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--gray);
+  }
+
+  .guarantee-row span { color: var(--gold); margin-right: 6px; }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--gray-line);
+    padding: 26px 0;
+  }
+
+  .faq-item:first-child { border-top: 1px solid var(--gray-line); }
+
+  .faq-q {
+    font-size: 18px;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 600;
+  }
+
+  .faq-q::after {
+    content: '+';
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: 300;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+
+  .faq-a {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding-top 0.3s ease;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding-top: 16px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  footer .gold-line { color: var(--gold); margin-bottom: 8px; font-size: 13px; letter-spacing: 0.05em; }
+
+  /* Sticky CTA mobile */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(10,10,10,0.97);
+    border-top: 1px solid var(--gray-line);
+    padding: 14px 20px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+  }
+
+  .sticky-cta span {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--white);
+    font-size: 14px;
+  }
+
+  .sticky-cta .btn { padding: 12px 24px; font-size: 13px; }
+
+  @media (max-width: 640px) {
+    section { padding: 64px 0; }
+    .hero { min-height: 86vh; padding-top: 80px; }
+    .module { grid-template-columns: 44px 1fr; gap: 16px; }
+    .module-num b { font-size: 22px; }
+    .sticky-cta { display: flex; }
+    body { padding-bottom: 70px; }
+    .guarantee-row { gap: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stars::before, .stars::after { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-col-text">
+      <div class="hero-mark"><span>Soul Violão</span> &nbsp;·&nbsp; Canta e Toca</div>
+      <h1>Você quer liderar o louvor da sua sala, mas <em>não sabe por onde começar?</em></h1>
+      <p class="hero-sub">Aqui você aprende 10 músicas infantis no violão — simples, prático e sem complicação. Do zero até tocar com as suas crianças.</p>
+      <div class="btn-wrap">
+        <a href="https://pay.hotmart.com/C105551381E?checkoutMode=10&hotfeature=51" class="btn btn-primary">Comprar agora</a>
+        <span class="btn-sub">R$ 39,90 · acesso vitalício</span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="capa.jpeg" alt="Canta e Toca">
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- THE PROMISE -->
+  <section class="string-block bordered">
+    <div class="big">Sem pestana.<br><span style="white-space: nowrap; font-size: 0.78em;">Sem pré-requisito.</span></div>
+    <div class="small">Do zero até tocar com as crianças</div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="bordered">
+    <span class="eyebrow">Assista antes de começar</span>
+    <h2>O que você vai aprender aqui?</h2>
+    <div class="two-col">
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/MfTDE4iRQuU" allowfullscreen></iframe>
+      </div>
+      <div>
+        <p class="lead">São 10 músicas gospel infantis, cada uma com aula em vídeo, cifra em PDF e um vídeo bônus pra você tocar junto. Tudo sem pestana e sem pré-requisito. Você começa do zero e termina com repertório pronto pra levar pra sua sala no próximo domingo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT IS -->
+  <section>
+    <span class="eyebrow">O que está incluído</span>
+    <h2>Tudo que você precisa pra tocar com as crianças.</h2>
+    <p class="lead">Cada uma das 10 músicas vem completa — você vê, aprende e sai com a cifra na mão.</p>
+
+    <div class="includes">
+      <div class="includes-item">
+        <div class="includes-mark">01</div>
+        <div class="includes-text">
+          <strong>Aula em vídeo por música</strong>
+          <span>Acorde por acorde, do início ao fim, sem pressa e sem enrolação</span>
+        </div>
+      </div>
+      <div class="includes-item">
+        <div class="includes-mark">02</div>
+        <div class="includes-text">
+          <strong>Cifra em PDF</strong>
+          <span>Pra imprimir, guardar no celular ou levar pra sala de aula</span>
+        </div>
+      </div>
+      <div class="includes-item">
+        <div class="includes-mark">03</div>
+        <div class="includes-text">
+          <strong>Vídeo bônus pra tocar junto</strong>
+          <span>Eu canto, você toca — pra treinar exatamente como vai ser na sala</span>
+        </div>
+      </div>
+      <div class="includes-item">
+        <div class="includes-mark">04</div>
+        <div class="includes-text">
+          <strong>Acesso vitalício</strong>
+          <span>Você paga uma vez e tem o conteúdo pra sempre, no seu ritmo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="bordered">
+    <span class="eyebrow">A jornada</span>
+    <h2>Como o curso está organizado</h2>
+
+    <div class="modules">
+      <div class="module">
+        <div class="module-num"><b>01</b>Módulo</div>
+        <div>
+          <div class="module-title">Boas-vindas</div>
+          <div class="module-desc">Apresento a jornada completa antes de você dar o primeiro passo, pra que saiba exatamente o que esperar.</div>
+        </div>
+      </div>
+      <div class="module">
+        <div class="module-num"><b>02</b>Módulo</div>
+        <div>
+          <div class="module-title">Preparação</div>
+          <div class="module-desc">Três vídeos com tudo que você precisa antes de começar: o que ter em mãos, postura, afinação, uso da palheta e como estudar — mesmo sem estar perfeito.</div>
+        </div>
+      </div>
+      <div class="module">
+        <div class="module-num"><b>03</b>Módulo</div>
+        <div>
+          <div class="module-title">As 10 músicas</div>
+          <div class="module-desc">O coração do curso. Pra cada música: os acordes, o ritmo, a aula completa com a cifra, e um vídeo bônus onde você toca enquanto eu canto.</div>
+        </div>
+      </div>
+      <div class="module">
+        <div class="module-num"><b>04</b>Módulo</div>
+        <div>
+          <div class="module-title">Encerramento</div>
+          <div class="module-desc">A gente celebra junto, e você encontra orientações sobre os próximos passos na sua jornada musical.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SONG LIST -->
+  <section>
+    <span class="eyebrow">Repertório</span>
+    <h2>As 10 músicas que você vai aprender</h2>
+    <p class="lead">3 Palavrinhas · Alô · Deus É Bom Pra Mim · É Muito Bom · Perto de Deus Eu Quero Andar · Por Dentro, Fora, Alto, Baixo · A Cada Momento · Assim Vou Louvar · Pedro, Tiago, João no Barquinho · A Alegria</p>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="bordered">
+    <span class="eyebrow">Quem está do outro lado da tela</span>
+    <h2>Adrianno Santos</h2>
+    <div class="two-col founder-layout">
+      <div class="founder">
+        <p>Tenho 34 anos, sou casado, pai de dois filhos e toco violão há 20 anos — foi o primeiro instrumento que aprendi e é o que eu toco até hoje na igreja.</p>
+        <p>Cresci vendo o impacto que a música tem dentro da igreja. Minha mãe foi professora do ministério infantil por muitos anos, e eu mesmo já fui chamado várias vezes pra ajudar no louvor da classinha. Foi ali que vi de perto algo que me marcou: professores cheios de vontade de liderar o louvor, mas sem saber por onde começar no violão.</p>
+        <p class="founder-quote">O Canta e Toca nasceu disso. Não é um curso pra formar musicistas — é um curso para professores aprenderem músicas infantis fáceis no violão.</p>
+        <p>Se você chegou até aqui, já sei que você tem o mais importante: a vontade de servir.</p>
+      </div>
+      <div class="founder-photo">
+        <img src="perfil.jpeg" alt="Adrianno Santos">
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE STACK -->
+  <section class="bordered" id="preco">
+    <span class="eyebrow">Quanto isso valeria separado?</span>
+    <h2>Veja o que você economiza fazendo tudo num só lugar.</h2>
+
+    <div class="value-stack">
+      <div class="value-item">
+        <div class="value-item-label"><span class="check">✓</span>3 aulas particulares de violão (1h cada)</div>
+        <div class="value-item-price">R$ 180,00</div>
+      </div>
+      <div class="value-item">
+        <div class="value-item-label"><span class="check">✓</span>Cifras das 10 músicas em PDF</div>
+        <div class="value-item-price">R$ 79,00</div>
+      </div>
+      <div class="value-item">
+        <div class="value-item-label"><span class="check">✓</span>Vídeos bônus pra tocar junto</div>
+        <div class="value-item-price">R$ 50,00</div>
+      </div>
+
+      <div class="value-total">
+        <div class="value-total-label">Se você fosse contratar separado</div>
+        <div class="value-total-price">R$ 309,00</div>
+        <div class="value-arrow">↓ no Canta e Toca, você leva tudo isso por</div>
+        <div class="value-final-price">R$ 39,90</div>
+        <div class="value-final-sub">pagamento único · acesso vitalício</div>
+
+        <div class="btn-wrap">
+          <a href="https://pay.hotmart.com/C105551381E?checkoutMode=10&hotfeature=51" class="btn btn-primary">Comprar agora</a>
+        </div>
+
+        <div class="guarantee-row">
+          <div><span>✓</span>Dados confidenciais</div>
+          <div><span>✓</span>Compra 100% segura</div>
+          <div><span>✓</span>7 dias de garantia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER BUMP -->
+  <section>
+    <span class="eyebrow">Leve também</span>
+    <h2>Letras Ilustradas — Canta e Toca</h2>
+    <div class="two-col">
+      <div>
+        <p class="lead">Por mais <strong class="gold">R$ 19,90</strong>, você adquire a letra das 10 músicas em PDF, com arte infantil colorida — prontas para imprimir, plastificar e usar em sala ou projetar na TV enquanto as crianças cantam junto. Você não precisa criar nada. É só baixar e usar no próximo encontro.</p>
+        <div class="btn-wrap" style="text-align: left; margin-top: 28px;">
+          <a href="https://pay.hotmart.com/C105551381E?checkoutMode=10&hotfeature=51" class="btn btn-primary">Comprar os dois</a>
+        </div>
+      </div>
+      <div class="hero-media" style="aspect-ratio: 1024/1280;">
+        <img src="ilustracao.jpeg" alt="Letras Ilustradas - Canta e Toca">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bordered">
+    <span class="eyebrow">Perguntas frequentes</span>
+    <h2>Antes de você começar</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Para quem é esse produto?</div>
+        <div class="faq-a">O Canta e Toca foi criado para professores do ministério infantil que amam música, já cantam com as crianças, mas ainda não tocam violão. Não é necessária nenhuma experiência anterior com violão.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como funciona o prazo de garantia?</div>
+        <div class="faq-a">Você tem 7 dias a partir da data da compra para testar o Canta e Toca. Se não ficar satisfeito, basta solicitar o reembolso dentro desse prazo — sem perguntas, sem burocracia.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como acesso o produto?</div>
+        <div class="faq-a">Você recebe o acesso por e-mail, e pode acessar ou baixar o conteúdo pelo computador, celular ou tablet, direto na área de membros da Hotmart.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como faço para comprar?</div>
+        <div class="faq-a">Clica em "Comprar agora", preenche os dados de pagamento e o acesso é liberado imediatamente após a confirmação.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="btn-wrap" style="padding-bottom: 40px;">
+    <a href="https://pay.hotmart.com/C105551381E?checkoutMode=10&hotfeature=51" class="btn btn-primary">Comprar agora</a>
+    <span class="btn-sub">R$ 39,90 · acesso vitalício</span>
+  </div>
+
+</div>
+
+<footer>
+  <div class="gold-line">Soul Violão</div>
+  <div>Canta e Toca — violão gospel para professores do ministério infantil</div>
+  <div style="margin-top: 16px;">© Todos os direitos reservados</div>
+</footer>
+
+<div class="sticky-cta">
+  <span>R$ 39,90</span>
+  <a href="https://pay.hotmart.com/C105551381E?checkoutMode=10&hotfeature=51" class="btn btn-primary">Comprar</a>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
