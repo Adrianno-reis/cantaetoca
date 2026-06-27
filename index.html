@@ -231,7 +231,7 @@
 
   .two-col.media-left { grid-template-columns: 0.95fr 1.05fr; }
 
-  .two-col.founder-layout { grid-template-columns: 1.3fr 1fr; align-items: start; gap: 40px; }
+  .two-col.founder-layout { grid-template-columns: 1.3fr 1fr; align-items: stretch; gap: 40px; }
 
   .video-frame {
     aspect-ratio: 16/9;
@@ -251,11 +251,12 @@
   }
 
   .founder-photo {
-    aspect-ratio: 3/4;
     border: 1px solid var(--gray-line);
     border-radius: 4px;
     background: var(--black-soft);
     overflow: hidden;
+    height: 100%;
+    min-height: 400px;
   }
 
   .founder-photo img {
